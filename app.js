@@ -1,8 +1,8 @@
 "use strict";
 
-let input = document.getElementById('input'), //кнопка ввода/ввывода
-	number = document.querySelectorAll('.numbers duv'), //номера кнопок
-	operator = document.querySelectorAll('.operator div'), //кнопки оператора
+var input = document.getElementById('input'), //кнопка ввода/ввывода
+	number = document.querySelectorAll('.numbers div'), //номера кнопок
+	operator = document.querySelectorAll('.operators div'), //кнопки оператора
 	result = document.getElementById('result'), //кнопка равенства
 	clear = document.getElementById('clear'), //кнопка очистки
 	resultDisplayed = false; //флажок, чтобы следить за тем, какие выходные данные отображаются
@@ -59,7 +59,7 @@ result.addEventListener("click", function () {
 	let inputString = input.innerHTML;
 
 	// формирование массива чисел. например, для приведенной выше строки это будет: numbers = ["10", "26", "33", "56", "34", "23"]
-	let numbers = inputString.split(/\+|\-|\×|\÷/g);
+	let numbers = inputString.split(/\+|\-|\*|\÷/g);
 	// формирование массива операторов. для приведенной выше строки это будет: операторы = ["+", "+", "-", "*", "/"]
 	// сначала мы заменяем все числа и точки пустой строкой, а затем разделяем
 	let operators = inputString.replace(/[0-9]|\./g, "").split("");
@@ -106,9 +106,9 @@ result.addEventListener("click", function () {
 	input.innerHTML = numbers[0]; // отображение выходных данных
 
 	resultDisplayed = true; // флаг поворота, если отображается результат
-
 });
+
 // очистка ввода при нажатии кнопки очистить
 clear.addEventListener("click", function () {
 	input.innerHTML = "";
-});
+})
